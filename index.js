@@ -1,5 +1,4 @@
 
-debugger
 let carrito = []
 
 
@@ -37,7 +36,7 @@ while(menu !== 7) {
       alert(`Se ha añadido la Computadora al Carrito`)
       comprobandoValidacion();      
       break
-        
+
     case 2:
       compraTotal = compraTotal + 5000
       carrito.push("Parlante = $5.000")
@@ -73,10 +72,7 @@ while(menu !== 7) {
 
     case 7:  
     break       
-  }
-  
- 
-
+  } 
 
 }
 
