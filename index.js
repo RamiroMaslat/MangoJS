@@ -139,10 +139,8 @@ function renderizarCarrito(){
           
         </div>
       </div>
-      `  
-      const menosCantidad = document.querySelector('#menosCantidad')
-      const masCantidad = document.querySelector('#masCantidad')
-      const cantidad = document.querySelector('#cantidad')      
+      `
+            
     })
   }else {
     seccionCarrito.innerHTML = `
