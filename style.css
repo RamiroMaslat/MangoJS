@@ -1,0 +1,247 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+/*Body*/
+body {
+    background-image: url("https://st2.depositphotos.com/3283585/8824/v/450/depositphotos_88243388-stock-illustration-pattern-with-jeans-wear-for.jpg");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.decoration {
+    background-color:#dfa10c;
+    width: 70%;
+    height: 15vh;
+    z-index: -1;
+}
+
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #88932a;
+    height: 10%;
+    width: 100%;
+    position: fixed;
+    border: 2px solid #323137;
+    z-index: 1;
+
+    
+}
+
+header a {    
+    text-decoration: none;
+    color: #323137;    
+}
+h1 {
+    letter-spacing: 20px;
+    margin-left: 3%;
+    font-size: 30px;
+    font-weight: 900;
+       
+    
+}
+.carrito {
+    margin-right: 10px;
+}
+.botonCarrito {
+    background-color: transparent;
+    border: none;
+}
+
+header img {
+    height: 30px;
+    width: 50px;
+    cursor: pointer;
+}
+header img:hover{
+    height: 35px;
+    width: 60px;
+    transition: 0.5s;
+}
+
+
+#titulo {
+    background-color: #dfa10c;
+    width: 70%;
+    margin: 0;
+    text-align: center;
+    text-decoration: underline;
+}
+#productos{
+    background-color: #dfa10c;
+    width: 70%;
+    display: flex;    
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+
+.card {
+    margin-top: 30px;
+    width: 300px;
+    height: 400px;
+    z-index: 0;
+    background-color: #88932a;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    border: 2px solid #323137;
+}
+
+.card-tittle {
+    font-weight: 900;
+}
+
+
+.card-img-top {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    margin-top: 10px;
+    border: 1px solid #dfa10c ;
+    
+}
+
+
+/*Modal*/
+.modal-content {
+    background-color: #dfa10c;
+    border: 2px solid #323137;
+}
+.modal-header {
+   border-bottom: var(--bs-modal-header-border-width) solid #323137;
+}
+.totalCompra {
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.carritoVacio {
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cantidadCarrito {
+    display: flex;
+    align-items: baseline;
+    gap: 10px
+}
+.btn-light {
+    font-weight: 700;
+    height: 30px;
+    
+}
+.modal-footer{
+    border-top: var(--bs-modal-header-border-width) solid #323137; 
+}
+
+
+
+
+
+/*Footer*/
+footer {
+    display: flex;    
+    background-color: #323137;
+    position: fixed;
+    bottom: 0;
+    height: 8%;
+    
+}
+
+.footerPayments {
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    width: 30%;    
+}
+
+.creditPayment, .debitPayment, .mpPayment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 13%;
+}
+
+.debitPayment p, .creditPayment p {
+    font-size: 80%;
+}
+
+.creditPayment img {
+    width: 65%;
+    
+}
+
+.debitPayment img {
+    width: 70%;
+   
+}
+
+.mpPayment img {
+    width: 95%;
+}
+
+.copyright {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-end;
+    width: 41%;  
+    
+}
+
+.footerSocial {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30%;
+}
+
+.footerSocial a {
+   display: flex;
+   justify-content: space-evenly;
+   width: 20%;
+}
+
+.footerSocial img {
+    width: 50%;  
+      
+}
+
+.whatsApp:hover {
+    background-color:#25d366;
+    transition: all 0.3s;
+    border-radius: 30px;
+    padding: 4px;
+}
+.faceBook:hover {
+    transition: all .3s;
+    background-color: #2f55a4;
+    border-radius: 30px;
+    padding: 1px;
+}
+.instagram:hover {
+    transition: .3s;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    border-radius: 30px;
+    padding: 3px;
+}
+
+footer p {
+    color: white; 
+    font-size: 80%;   
+}
