@@ -6,6 +6,7 @@
 }
 
 
+
 /*Body*/
 body {
     background-image: url("https://st2.depositphotos.com/3283585/8824/v/450/depositphotos_88243388-stock-illustration-pattern-with-jeans-wear-for.jpg");
@@ -112,6 +113,13 @@ header img:hover{
     margin-top: 10px;
     border: 1px solid #dfa10c ;
     
+}
+.stock{
+    font-weight: 700;
+}
+#stock {
+    color: red;
+    font-weight: 900;
 }
 
 

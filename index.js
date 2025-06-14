@@ -21,35 +21,21 @@ const producto6 = new Producto(5, "Bermuda", 40000, 9, "https://encrypted-tbn1.g
 const producto7 = new Producto(6, "Medias", 10000, 15, "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRjODO4o7L2zsCi2qoLpYR3TyzO9V5-h0LjPxqDsosgVd3fEqP20bzaWu9GZhuRaRnfLW1PVRnleU4a7TeA2YSlL_24TqRlxAoYmPLYEQ8ervNp6tSeGNJ7QA");
 const producto8 = new Producto(7, "Zapatillas", 55000, 5, "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRXwC9MSGpwilJ2Fb8W3JKPTQljpTyDxewlj5eZWiJ_nCuHxzxt_YpibY1kx29lTXslDTWaeTvUhmznSx0Q6zueRCP8x86LZuQ3XrQYxCQCw38JgHhTmTlo");
 
-const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8]
 
 const seccionProductos = document.getElementById('productos')
-let carrito = JSON.parse(localStorage.getItem('carrito')) || []
+
+let productosRecuperados = JSON.parse(localStorage.getItem('productos'))
+let productos = productosRecuperados || [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8]
+
+let carritoRecuperado = JSON.parse(localStorage.getItem('carrito'))
+let carrito = carritoRecuperado || []
 
 
 
-
-function guardarJSON (){
+function guardarJSON() {
   localStorage.setItem('carrito', JSON.stringify(carrito))
+  localStorage.setItem('productos', JSON.stringify(productos))
 }
-
-function renderizarProductos(){
-  productos.forEach(producto => {
-    seccionProductos.innerHTML += `
-    <div id="${producto.id}" class="card text-center mb-3" style="width: 18rem;">
-      <img src="${producto.imagen}" class="card-img-top" alt="${producto.producto}">
-      <div class="card-body">
-        <h5 class="card-title">${producto.producto}</h5>
-        <p class="card-text">Precio: $${producto.precio}</p>
-        <p class="card-text">Stock: ${producto.stock}</p>
-        <button id=${producto.id}type="button" class="btn btn-success">Agregar al Carrito</button>
-      </div>
-    </div>
-    `
-  });
-}
-
-
 
 
 productos.forEach(producto => {
@@ -59,7 +45,9 @@ productos.forEach(producto => {
     <div class="card-body">
       <h5 class="card-title">${producto.producto}</h5>
       <p class="card-text">Precio: $${producto.precio}</p>
-      <p id=stock${producto.id} class="card-text stock${producto.id}">Stock: ${producto.stock}</p>
+      <p id=stock${producto.id} class="card-text stock">
+        ${producto.stock > 0 ? `Stock: ${producto.stock}` : `<span id="stock">Sin stock</span>`}
+      </p>      
       <button id=${producto.id}type="button" class="btn btn-success">Agregar al Carrito</button>
     </div>
   </div>
@@ -73,41 +61,37 @@ const visualizarCarrito = document.querySelector('.botonCarrito')
 const seccionCarrito = document.querySelector('.modal-body')
 const stockDelProducto = document.querySelector('.stock')
 const totalCompra = document.querySelector('.totalCompra')
-let valorTotalCompra = carrito.reduce((acc, producto) => acc + producto.precio, 0) 
 
+function calcularValorTotal (array){
+  let valorTotalCompra = array.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0) 
+  return valorTotalCompra
+}
 
 btnAgregarCarrito.forEach(boton => {
   boton.onclick = () => {
     let productoSeleccionado = productos.find(producto => producto.id === parseInt(boton.id))   
-    let index = carrito.findIndex(prod => prod.id === productoSeleccionado.id)
-    let productoCarrito = {...productoSeleccionado}
-    
-    
+    let index = carrito.findIndex(prod => prod.id === productoSeleccionado.id)        
     const stockProducto = document.getElementById(`stock${productoSeleccionado.id}`)
-    if(productoSeleccionado.stock > 0){
-      
+    if(productoSeleccionado.stock > 0){     
 
       if(index === -1){
         carrito.push(productoCarrito = {...productoSeleccionado, cantidad: 1})
-        productoSeleccionado.stock--
-          
+        productoSeleccionado.stock--          
         stockProducto.innerHTML = `Stock: ${productoSeleccionado.stock}`
-        totalCompra.innerHTML = `Total: $${valorTotalCompra}`
-        
-        
+        totalCompra.innerHTML = `Total: $${calcularValorTotal(carrito)}`     
       }else{      
         carrito[index].cantidad+=1 
-        productoSeleccionado.stock--        
-        valorTotalCompra = carrito[index].cantidad * carrito[index].precio
+        productoSeleccionado.stock--    
+        let valorTotalCompra = carrito[index].cantidad * carrito[index].precio
         stockProducto.innerHTML = `Stock: ${productoSeleccionado.stock}`
-        totalCompra.innerHTML = `Total: $${valorTotalCompra}`      
+        totalCompra.innerHTML = `Total: $${valorTotalCompra}`     
        
       }    
 
     }else {
-      stockProducto.innerHTML = `Sin Stock`
+      
+      stockProducto.innerHTML = `<p id=stock class="card-text ">Sin stock</p>`
       alert('El producto se quedó sin stock')
-
     }
     
     guardarJSON();   
@@ -129,19 +113,16 @@ function vaciarCarrito(){
       }    
      
     })    
-    carrito = []
-    
-    
-    guardarJSON(); 
-  }   
-  totalCompra.innerHTML = 'Total: $0'
-  renderizarCarrito();
-  
+    carrito = []   
+    guardarJSON();    
+    renderizarCarrito();
+    totalCompra.innerHTML = 'Total: $0'
+  }      
 }
 
 function renderizarCarrito(){  
     seccionCarrito.innerHTML =''
-    totalCompra.innerHTML = `Total: $${valorTotalCompra}`
+    totalCompra.innerHTML = `Total: $${calcularValorTotal(carrito)}`  
     if(carrito.length > 0){
     carrito.forEach(item => {    
       seccionCarrito.innerHTML += `
@@ -161,9 +142,7 @@ function renderizarCarrito(){
       `  
       const menosCantidad = document.querySelector('#menosCantidad')
       const masCantidad = document.querySelector('#masCantidad')
-      const cantidad = document.querySelector('#cantidad')
-
-      
+      const cantidad = document.querySelector('#cantidad')      
     })
   }else {
     seccionCarrito.innerHTML = `
@@ -171,19 +150,15 @@ function renderizarCarrito(){
           <p class="">No tienes elementos en el carrito!</p>
           <img src="./img/face.png" class="card-img-top" alt="Carita triste">  
         </div>              
-      `  
+      ` 
+    totalCompra.innerHTML = `Total: $${calcularValorTotal(carrito)}` 
   }
-  
-
 }
-
-
-
 
 visualizarCarrito.onclick = () => {
   renderizarCarrito();
+  
 }
-
 
 btnVaciarCarrito.onclick = () => {
   vaciarCarrito();
