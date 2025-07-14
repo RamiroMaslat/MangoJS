@@ -1,0 +1,65 @@
+[   {
+    "id": 0,
+    "producto": "Pantalón", 
+    "precio": 50000, 
+    "stock": 13, 
+    "imagen": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRC27u0HwETvw68vwc_ZAt6DG1bGs6QAEoZYN6olTvGVrONYnvstZPmmScwM4-HqewXiDYWd8FPCQIpGsdI3QWG_D0cvrz6PcPY9F5um_ygX5Uq2CAoZPzd&usqp=CAc"
+    },
+
+    {
+        "id": 1, 
+        "producto": "Remera", 
+        "precio": 20000, 
+        "stock": 15, 
+        "imagen": "https://acdn-us.mitiendanube.com/stores/001/312/577/products/remera-essential-negro-fa8d2313b500986c0a17005231430778-1024-1024.jpg"
+    },
+
+    {
+        "id": 2, 
+        "producto": "Sweater", 
+        "precio": 35000, 
+        "stock": 8, 
+        "imagen": "https://acdn-us.mitiendanube.com/stores/252/220/products/9d1481e7-f3d6-45ae-9761-33718c96772d-9194a4c7b7ff38a3fe17456198022072-1024-1024.png"
+    
+    },
+
+    {
+        "id": 4, 
+        "producto": "Camisa", 
+        "precio": 25000, 
+        "stock": 7, 
+        "imagen": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRqUL5kDm0oSF3VfT90KuNObAf307vBhdDIqpzyrkKlx8BFLo6wo2S659KRe1_eQZlcatNv8Gg5Woj3APIfkcWH9VOse_ZDzgGf05BHbTunRNP7esr34O8jxp6Qc66jvm5lAuhRF4s&usqp=CAc"
+    },
+
+    {
+        "id": 3, 
+        "producto": "Traje de baño", 
+        "precio": 15000, 
+        "stock": 12,
+         "imagen": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRPjNJOCgK1FQGrSm1kvhEwZOZtFy-RiofwfUUil9BY6Dsvs7g23vAX9JwrJeVrq2GIoWYaNcj9vdfgLVJIgKlPoX1ORyQeNL37gcfwJtKYouSezrS2hIuaUJe2yRMCccfsT2fMGQ&usqp=CAc"
+    },
+
+    {
+        "id": 5, 
+        "producto": "Bermuda", 
+        "precio": 40000, 
+        "stock": 9, 
+        "imagen": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRndXjC_3xBxqVaqOBJOXv0YT8NSOH6-R-Yk3f3JnOvuhFffSywzqlloZvbo42RaZ_Dj9QC2TxXt_dMXrhXohXkQKxxtnOCrNUUYBeFmhaIbh-an8_PqVZcTXtr34X_JljCGjWxty3j&usqp=CAc"
+    },
+
+    {
+        "id": 6, 
+        "producto": "Medias", 
+        "precio": 10000, 
+        "stock": 16,
+         "imagen": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRjODO4o7L2zsCi2qoLpYR3TyzO9V5-h0LjPxqDsosgVd3fEqP20bzaWu9GZhuRaRnfLW1PVRnleU4a7TeA2YSlL_24TqRlxAoYmPLYEQ8ervNp6tSeGNJ7QA"
+    },
+    
+    {
+        "id": 7, 
+        "producto": "Zapatillas", 
+        "precio": 55000, 
+        "stock": 5, 
+        "imagen": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRXwC9MSGpwilJ2Fb8W3JKPTQljpTyDxewlj5eZWiJ_nCuHxzxt_YpibY1kx29lTXslDTWaeTvUhmznSx0Q6zueRCP8x86LZuQ3XrQYxCQCw38JgHhTmTlo"
+    }
+]

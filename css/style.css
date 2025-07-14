@@ -157,6 +157,10 @@ header img:hover{
     border-top: var(--bs-modal-header-border-width) solid #323137; 
 }
 
+.btn-secondary:hover {
+    background-color: #198754;
+}
+
 
 
 
